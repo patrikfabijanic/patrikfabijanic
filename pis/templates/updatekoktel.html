@@ -1,0 +1,109 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" 
+    integrity="sha384-PJsj/BTMqILvmcej7ulplguok8ag4xFTPryRq8xevL7eBYSmpXKcbNVuy+P0RMgq" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" media="all">
+
+    <title>Shake&Make</title>
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+    <nav style="text-align: left;" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="https://cdn-icons-png.flaticon.com/512/3388/3388607.png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
+            Shake&Make
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="/createkoktel">Dodaj koktel</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/createalkohol">Dodaj alkohol</a>
+                  </li>
+                  
+          </ul>
+          </div>
+        </div>
+      </nav>
+      <p class="hedazurkok">Ažuriraj koktel:</p>
+
+      <form method="POST" action="/updatekoktel/{{ id }}" enctype="multipart/form-data" class="m-5">
+        <div class="form-group"> 
+        <label for="titolo_kok">Naziv koktela:</label>
+        <input type="text" class="form-control" name="titolo_kok" id="titolo_kok" value="{{ koktel['naslov'] }}" required placeholder="Unesite novi naziv koktela"><br><br>
+        </div>
+
+        <div class="form-group"> 
+        <label for="sastojci_kok">Sastojci:</label>
+        <textarea name="sastojci_kok" placeholder="Unesite sastojke koktela:"
+              class="form-control">{{ koktel.sastojci }}</textarea>
+     
+         <br><br>
+        </div>
+
+        <div class="form-group"> 
+        <label for="info_kok">Informacije:</label>
+        <textarea name="info_kok" placeholder="Kratke upute za pripremu koktela:"
+            class="form-control">{{ koktel.info }}</textarea>
+        <br><br>
+        
+        </div>
+
+        
+        <div class="form-group">
+          <label for="alkoholi">Alkohol</label>
+          <select name="alkohol_id" id="alkoholi" class="form-control">
+          <option value="-1" {% if koktel.alkohol_id is defined %} selected {%endif%}><i>Bezalkoholno piće</i></option>   <!-- -1 je NULL u bazi -->
+          {% for alkohol in alkoholi %}
+          <option value="{{alkohol.id}}" {% if alkohol.id == koktel['alkohol_id'] %} selected {% endif %}>{{alkohol.naslov}}</option>
+          {% endfor %}
+    
+          </select>
+          </div>
+
+        <div class="form-group"> 
+        {% if koktel['slika'] %}
+        <label>Trenutna slika:</label><br>
+        <img src="{{ koktel['slika'] }}" width="300" ><br><br>
+        {% endif %}
+        </div>
+
+
+        
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Ažuriraj koktel</button>
+        </div>
+
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+   
+
+
+    
+  </div>
+
+
+
+
+  </body>
+</html>
+
+

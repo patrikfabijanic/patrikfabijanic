@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" 
+    integrity="sha384-PJsj/BTMqILvmcej7ulplguok8ag4xFTPryRq8xevL7eBYSmpXKcbNVuy+P0RMgq" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" media="all">
+
+    <title>Shake&Make</title>
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+    <nav style="text-align: left;" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="https://cdn-icons-png.flaticon.com/512/3388/3388607.png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
+            Shake&Make
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="/createkoktel">Dodaj koktel</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/createalkohol">Dodaj alkohol</a>
+                  </li>
+                  
+          </ul>
+          </div>
+        </div>
+      </nav>
+      <p class="dodajalk">Dodaj alkohol:</p>
+
+      <form method="post" class="m-5">
+        <div class="form-group">
+          <label for="titolo_alk">Ime alkohola</label> 
+            <input type="text" name="titolo_alk" placeholder="Unesite ime alkohola" class="form-control"
+                value="{{ request.form['titolo_alk'] }}" required></input>
+        </div>
+
+        <div class="form-group">
+        <label for="info_alk">Info alkohola</label>
+        <textarea name="info_alk" placeholder="Unesite informacije alkohola"
+            class="form-control">{{ request.form['info_alk'] }}</textarea>
+        </div> 
+      </br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Dodaj alkohol</button>
+        </div>
+       </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+   
+
+
+   
+  </div>
+
+
+
+
+  </body>
+</html>
