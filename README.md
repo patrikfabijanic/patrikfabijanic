@@ -43,6 +43,6 @@ Korisnici mogu dodavati nove koktele/alkohole, pregledavati postojeće koktele/a
 ## Pokretanje web aplikacije
 - Potrebno je preuzeti sve datoteke koje se nalaze na Github-u i spremiti ih u mapu.
 - Otvoriti CMD i navigirati do mjesta gdje se nalaze spremljene datoteke.
-- Pomoću naredbe: ```docker build -t patrikfabijanic/pis-flask:0.0.1.RELEASE . ``` kreirate docker image.
-- Slijedeći korak je pokrenuti konteiner naredbom ```docker container run -d -p 3000:3000 patrikfabijanic/pis-flask:0.0.1.RELEASE```
+- Pomoću naredbe: ```docker build -t shakeandmake/pis-flask:0.0.1.RELEASE . ``` kreirate docker image.
+- Slijedeći korak je pokrenuti konteiner naredbom ```docker container run -d -p 3000:3000 shakeandmake/pis-flask:0.0.1.RELEASE```
 - Nakon svih koraka otvoriti preglednik i unijeti adresu: ```localhost:3000```
